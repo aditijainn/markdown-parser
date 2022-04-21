@@ -93,4 +93,91 @@ public class MarkdownParseTest {
 
         assertEquals(expectedResult, testResult);
     }
+
+    //Testing new tests
+    @Test
+    public void testFileMD2() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file2.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        expectedResult = List.of("https://something.com", "some-page.html");
+
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD3() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file3.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD4() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file4.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD5() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file5.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD6() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file6.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD7() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file7.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test
+    public void testFileMD8() throws Exception {
+        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file8.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = new ArrayList<>();
+
+        testResult = MarkdownParse.getLinks(fileContents);
+        
+
+        assertEquals(expectedResult, testResult);
+    }
 }
