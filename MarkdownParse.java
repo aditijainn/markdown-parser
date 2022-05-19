@@ -14,8 +14,6 @@ public class MarkdownParse {
         while(currentIndex < markdown.length()) {
             /*
             String currentString = markdown.substring(currentIndex, markdown.length());
-            //System.out.println(1);
-            //System.out.println(currentString);
             if (!currentString.contains("[") && !currentString.contains("]") && !currentString.contains("(") && !currentString.contains(")")) {
                     //System.out.println("Only at end");
                     break;

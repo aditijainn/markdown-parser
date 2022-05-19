@@ -1,10 +1,13 @@
+/* javac -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar MarkdownParseTest.java 
+java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnitCore MarkdownParseTest
+*/
+
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.*;
-
 
 public class MarkdownParseTest {
 
@@ -15,12 +18,12 @@ public class MarkdownParseTest {
 
     @Test
     public void testFileMD() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file.md"));
+        String fileContents = Files.readString(Path.of("test-file.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         expectedResult = List.of("https://something.com", "some-thing.html");
 
         assertEquals(expectedResult, testResult);
@@ -28,41 +31,42 @@ public class MarkdownParseTest {
 
     @Test
     public void testFile2() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test2.md"));
+        String fileContents = Files.readString(Path.of("test2.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         expectedResult = List.of("linktosomething.com");
 
         assertEquals(expectedResult, testResult);
     }
 
-    /*
-    * Haven't fixed the bug that causes this test to fail yet so will not test yet
+    
+    // Haven't fixed the bug that causes this test to fail yet so will not test yet
     @Test
     public void testFile3() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test3.md"));
+        String fileContents = Files.readString(Path.of("test3.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         expectedResult = List.of("linktosomething.com");
 
         assertEquals(expectedResult, testResult);
     }
-    */
+    
+    
 
     @Test
     public void testFile4() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test4.md"));
+        String fileContents = Files.readString(Path.of("test4.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         ArrayList<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         
         assertEquals(expectedResult, testResult);
@@ -70,12 +74,12 @@ public class MarkdownParseTest {
 
     @Test
     public void testFile5() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test5.md"));
+        String fileContents = Files.readString(Path.of("test5.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
 
         assertEquals(expectedResult, testResult);
@@ -83,12 +87,12 @@ public class MarkdownParseTest {
 
     @Test
     public void testFile6() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test6.md"));
+        String fileContents = Files.readString(Path.of("test6.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         expectedResult = List.of("something.com");
 
         assertEquals(expectedResult, testResult);
@@ -97,87 +101,98 @@ public class MarkdownParseTest {
     //Testing new tests
     @Test
     public void testFileMD2() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file2.md"));
+        String fileContents = Files.readString(Path.of("test-file2.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         expectedResult = List.of("https://something.com", "some-page.html");
 
         assertEquals(expectedResult, testResult);
     }
 
+    
     @Test
     public void testFileMD3() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file3.md"));
+        String fileContents = Files.readString(Path.of("test-file3.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         assertEquals(expectedResult, testResult);
     }
 
     @Test
     public void testFileMD4() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file4.md"));
+        String fileContents = Files.readString(Path.of("test-file4.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         assertEquals(expectedResult, testResult);
     }
 
     @Test
     public void testFileMD5() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file5.md"));
+        String fileContents = Files.readString(Path.of("test-file5.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         assertEquals(expectedResult, testResult);
     }
 
     @Test
     public void testFileMD6() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file6.md"));
+        String fileContents = Files.readString(Path.of("test-file6.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         assertEquals(expectedResult, testResult);
     }
 
     @Test
     public void testFileMD7() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file7.md"));
+        String fileContents = Files.readString(Path.of("test-file7.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
         assertEquals(expectedResult, testResult);
     }
 
     @Test
     public void testFileMD8() throws Exception {
-        String fileContents = Files.readString(Path.of("/Users/alexandrade/Documents/GitHub/markdown-parser/test-file8.md"));
+        String fileContents = Files.readString(Path.of("test-file8.md"));
 
         ArrayList<String> testResult = new ArrayList<>();
         List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse.getLinks(fileContents);
+        testResult = MarkdownParse2.getLinks(fileContents);
         
 
         assertEquals(expectedResult, testResult);
     }
+    
+
+    // @Test 
+    // public void testSpaceAFterParen() {
+       
+    //         String contents = "[title]( space-in-url.com)";
+    //         List<String> expect = List.of("space-in-url.com");
+    //         assertEquals(expect, MarkdownParse1.getLinks(contents));
+        
+    // }
 }
