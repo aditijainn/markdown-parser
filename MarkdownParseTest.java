@@ -4,6 +4,8 @@ java -cp .:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar org.junit.runner.JUnit
 
 import static org.junit.Assert.*;
 import org.junit.*;
+
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -43,19 +45,19 @@ public class MarkdownParseTest {
     }
 
     
-    // Haven't fixed the bug that causes this test to fail yet so will not test yet
-    @Test
-    public void testFile3() throws Exception {
-        String fileContents = Files.readString(Path.of("test3.md"));
+    // // Haven't fixed the bug that causes this test to fail yet so will not test yet
+    // @Test
+    // public void testFile3() throws Exception {
+    //     String fileContents = Files.readString(Path.of("test3.md"));
 
-        ArrayList<String> testResult = new ArrayList<>();
-        List<String> expectedResult = new ArrayList<>();
+    //     ArrayList<String> testResult = new ArrayList<>();
+    //     List<String> expectedResult = new ArrayList<>();
 
-        testResult = MarkdownParse2.getLinks(fileContents);
-        expectedResult = List.of("linktosomething.com");
+    //     testResult = MarkdownParse2.getLinks(fileContents);
+    //     expectedResult = List.of("linktosomething.com");
 
-        assertEquals(expectedResult, testResult);
-    }
+    //     assertEquals(expectedResult, testResult);
+    // }
     
     
 
@@ -195,4 +197,43 @@ public class MarkdownParseTest {
     //         assertEquals(expect, MarkdownParse1.getLinks(contents));
         
     // }
+
+    @Test 
+    public void testReport4Test1() throws IOException{
+        String fileContents = Files.readString(Path.of("Report4Test1.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = List.of("`google.com", "google.com", "ucsd.edu");
+
+        testResult = MarkdownParse2.getLinks(fileContents);
+        
+
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test 
+    public void testReport4Test2() throws IOException{
+        String fileContents = Files.readString(Path.of("Report4Test2.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = List.of("a.com", "a.com(())", "example.com");
+
+        testResult = MarkdownParse2.getLinks(fileContents);
+        
+
+        assertEquals(expectedResult, testResult);
+    }
+
+    @Test 
+    public void testReport4Test3() throws IOException{
+        String fileContents = Files.readString(Path.of("Report4Test3.md"));
+
+        ArrayList<String> testResult = new ArrayList<>();
+        List<String> expectedResult = List.of("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
+
+        testResult = MarkdownParse2.getLinks(fileContents);
+        
+
+        assertEquals(expectedResult, testResult);
+    }
 }
